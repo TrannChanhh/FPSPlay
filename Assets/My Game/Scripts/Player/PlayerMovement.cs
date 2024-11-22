@@ -16,17 +16,24 @@ public class PlayerMovement : MonoBehaviour
 
     private CharacterController controller;
     private Vector3 velocity;
-    
-    // Start is called before the first frame update
+
+    //private variable
+    private int isJumpID;
+    private int isRunID;
+    private Animator anim;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        anim = GetComponentInChildren<Animator>();
+        isRunID = Animator.StringToHash("IsRun");
+        isJumpID = Animator.StringToHash("IsJump");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (IsCheckGround() && velocity.y < 0)  
+        if (IsCheckGround() && velocity.y < 0)
         {
             velocity.y = -2f;
         }
@@ -35,12 +42,28 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
         Vector3 move = (transform.right * x + transform.forward * z);
         controller.Move(move * speedMove * Time.deltaTime);
-
+        if (x != 0 || z != 0)
+        {
+            anim.SetBool(isRunID, true);
+            if (!AudioManager.Instance.playerSource.isPlaying)
+            {
+                AudioManager.Instance.playerSource.PlayOneShot(AudioManager.Instance.playerRun);
+            }
+        }
+        else
+        {
+            anim.SetBool(isRunID, false);
+        }
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
         if (Input.GetButtonDown("Jump") && IsCheckGround())
         {
+            if (!AudioManager.Instance.playerSource.isPlaying)
+            {
+                AudioManager.Instance.playerSource.PlayOneShot(AudioManager.Instance.playerJump);
+            }
+            anim.SetTrigger(isJumpID);
             velocity.y = Mathf.Sqrt(jumpHigh * gravity * -2f);
         }
     }

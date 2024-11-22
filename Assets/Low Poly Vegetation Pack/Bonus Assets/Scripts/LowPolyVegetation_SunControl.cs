@@ -1,14 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LowPolyVegetation_SunControl : MonoBehaviour {
+public class LowPolyVegetation_SunControl : MonoBehaviour
+{
 
-	//Range for min/max values of variable
-	[Range(-10f, 10f)]
-	public float sunRotationSpeed_x, sunRotationSpeed_y;
+    //Range for min/max values of variable
+    [Range(-10f, 10f)]
+    public float sunRotationSpeed_x, sunRotationSpeed_y;
 
-	// Sun Movement
-	void Update () {
-		gameObject.transform.Rotate (sunRotationSpeed_x * Time.deltaTime, sunRotationSpeed_y * Time.deltaTime, 0);
-	}
+    // Sun Movement
+    void Update()
+    {
+        gameObject.transform.Rotate(sunRotationSpeed_x * Time.deltaTime, sunRotationSpeed_y * Time.deltaTime, 0);
+    }
 }

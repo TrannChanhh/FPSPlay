@@ -95,6 +95,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2800957848180622153}
   - component: {fileID: 1587176843802166381}
+  - component: {fileID: -5031888101985761221}
+  - component: {fileID: 1418530414243011938}
   m_Layer: 0
   m_Name: Tree_02 (1)
   m_TagString: Untagged
@@ -142,6 +144,29 @@ LODGroup:
     renderers:
     - renderer: {fileID: 8501662561451770690}
   m_Enabled: 1
+--- !u!114 &-5031888101985761221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091079911429120498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c2d8c8cb9e3bef4ca95c51bf0ad2f95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swayAmount: 5.84
+  swaySpeed: 5
+  swayHeightThreshold: 4.84
+--- !u!33 &1418530414243011938
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091079911429120498}
+  m_Mesh: {fileID: 0}
 --- !u!1 &8939238436450170237
 GameObject:
   m_ObjectHideFlags: 0
